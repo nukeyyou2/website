@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.project_name }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">{{ data.project_name }}</div>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">项目介绍</a></li>
+                <li><a href="#team">团队介绍</a></li>
+                <li><a href="#achievements">动态成果</a></li>
+                <li><a href="#recruitment">招生信息</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首页横幅 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ data.project_name }}</h1>
+            <p class="hero-subtitle">探索智能科技前沿 · 培养创新研究人才</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">了解项目</a>
+                <a href="#recruitment" class="btn btn-secondary">加入我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目介绍 -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">项目介绍</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>研究背景</h3>
+                    <p>{{ data.project_description.background }}</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🔬</div>
+                    <h3>研究方向</h3>
+                    <p>{{ data.project_description.direction }}</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">📚</div>
+                    <h3>研究内容</h3>
+                    <p>{{ data.project_description.content }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队介绍 -->
+    <section id="team" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">团队介绍</h2>
+            
+            <!-- 项目负责人 -->
+            <div class="leader-section">
+                <h3 class="subsection-title">项目负责人</h3>
+                <div class="leader-card">
+                    <div class="leader-avatar">
+                        <div class="avatar-placeholder">{{ data.team.leader.name[0] }}</div>
+                    </div>
+                    <div class="leader-info">
+                        <h4>{{ data.team.leader.name }}</h4>
+                        <p class="leader-title">{{ data.team.leader.title }}</p>
+                        <p><strong>研究兴趣：</strong>{{ data.team.leader.research_interests }}</p>
+                        <p><strong>主要成就：</strong>{{ data.team.leader.achievements }}</p>
+                        <p><strong>联系方式：</strong><a href="mailto:{{ data.team.leader.email }}">{{ data.team.leader.email }}</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 团队成员 -->
+            <div class="members-section">
+                <h3 class="subsection-title">团队成员</h3>
+                <div class="members-grid">
+                    {% for member in data.team.members %}
+                    <div class="member-card">
+                        <div class="member-avatar">{{ member.name[0] }}</div>
+                        <h4>{{ member.name }}</h4>
+                        <p class="member-role">{{ member.role }}</p>
+                        <p class="member-spec">{{ member.specialization }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- 团队风采 -->
+            <div class="team-culture">
+                <h3 class="subsection-title">团队风采</h3>
+                <div class="culture-card">
+                    <p class="culture-text">{{ data.team.team_culture }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目动态与成果 -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">项目动态与成果</h2>
+            <div class="timeline">
+                {% for item in data.news_and_achievements %}
+                <div class="timeline-item">
+                    <div class="timeline-date">{{ item.date }}</div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">{{ item.type }}</span>
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 招生信息 -->
+    <section id="recruitment" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">招生信息</h2>
+            
+            {% if data.recruitment.is_open %}
+            <div class="recruitment-status open">
+                <h3>🎉 正在招募中！</h3>
+            </div>
+
+            <div class="positions-grid">
+                {% for position in data.recruitment.positions %}
+                <div class="position-card">
+                    <h4>{{ position.title }}</h4>
+                    <p class="position-count">招募人数：{{ position.count }}</p>
+                    <h5>招募要求：</h5>
+                    <ul class="requirements-list">
+                        {% for req in position.requirements %}
+                        <li>{{ req }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="contact-section">
+                <h3 class="subsection-title">联系方式</h3>
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>邮箱：</strong>
+                            <a href="mailto:{{ data.recruitment.contact.email }}">{{ data.recruitment.contact.email }}</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <strong>电话：</strong>{{ data.recruitment.contact.phone }}
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>地址：</strong>{{ data.recruitment.contact.address }}
+                        </div>
+                    </div>
+                    <div class="contact-note">
+                        <p>{{ data.recruitment.contact.note }}</p>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="recruitment-status closed">
+                <h3>暂不招募</h3>
+                <p>感谢您的关注，目前暂无招募计划。</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 {{ data.project_name }}. All Rights Reserved.</p>
+            <p>Powered by FastAPI</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
