@@ -40,6 +40,15 @@ cv/
 
 ## 快速开始
 
+### GitHub Pages（推荐发布方式）
+
+该站点在 GitHub Pages 采用纯静态部署，发布入口为：
+
+1. 仓库根目录下的 `index.html`
+2. 静态资源位于 `static/`（`static/css/style.css`、`static/js/script.js`）
+
+部署到 GitHub Pages 时，不需要运行 FastAPI，打开仓库 Pages URL 即可查看。
+
 ### 1. 安装依赖
 
 ```bash

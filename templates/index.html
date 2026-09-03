@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ data.project_name }}</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="description" content="人机共智的认知对齐与协调演化机制研究 | 团队介绍与成果展示">
+    <title>人机共智的认知对齐与协同演化机制研究</title>
+    <link rel="stylesheet" href="static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <a class="skip-link" href="#home">跳转到主要内容</a>
+
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">{{ data.project_name }}</div>
-            <ul class="nav-menu">
+        <div class="container navbar-inner">
+            <a class="nav-brand" href="#home">
+                <span class="brand-mark">人</span>
+                <span>人机共智的认知对齐与协同演化机制研究</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#about">项目介绍</a></li>
                 <li><a href="#team">团队介绍</a></li>
@@ -22,177 +33,222 @@
         </div>
     </nav>
 
-    <!-- 首页横幅 -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">{{ data.project_name }}</h1>
-            <p class="hero-subtitle">探索智能科技前沿 · 培养创新研究人才</p>
+        <div class="hero-orb hero-orb-left" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-right" aria-hidden="true"></div>
+        <div class="container hero-content-wrap">
+            <p class="hero-kicker">面向未来的科研平台</p>
+            <h1 class="hero-title">人机共智的认知对齐与协同演化机制研究</h1>
+            <p class="hero-subtitle">生成式AI与教育智能体快速进入学习场景，学习正从“人独自完成”转向“人机共智协作”。</p>
+            <p class="hero-description">面向人机共智教育，我们聚焦构建“可解释、可信赖、可协同”的智能学习体系，系统揭示人机协作的认知与行为规律，并形成可迁移的教学交互设计与评测方法。</p>
             <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary">了解项目</a>
-                <a href="#recruitment" class="btn btn-secondary">加入我们</a>
+                <a href="#recruitment" class="btn btn-ghost">加入我们</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat" data-reveal>
+                    <span class="hero-stat-value count-up" data-count="5">0</span>
+                    <span class="hero-stat-label">团队人数</span>
+                </div>
+                <div class="hero-stat" data-reveal>
+                    <span class="hero-stat-value count-up" data-count="2">0</span>
+                    <span class="hero-stat-label">开放岗位</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 项目介绍 -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">项目介绍</h2>
             <div class="about-grid">
-                <div class="about-card">
+                <article class="about-card" data-reveal>
                     <div class="card-icon">🎯</div>
                     <h3>研究背景</h3>
-                    <p>{{ data.project_description.background }}</p>
-                </div>
-                <div class="about-card">
+                    <p>生成式AI与教育智能体快速进入学习场景，学习正从“人独自完成”转向“人机共智协作”，亟需同时关注其对认知过程的促进作用与潜在风险。</p>
+                </article>
+                <article class="about-card" data-reveal>
                     <div class="card-icon">🔬</div>
                     <h3>研究方向</h3>
-                    <p>{{ data.project_description.direction }}</p>
-                </div>
-                <div class="about-card">
+                    <p>面向人机共智教育，我们聚焦构建“可解释、可信赖、可协同”的智能学习体系，系统揭示人机协作的认知与行为规律，并形成可迁移的教学交互设计与评测方法。</p>
+                </article>
+                <article class="about-card" data-reveal>
                     <div class="card-icon">📚</div>
                     <h3>研究内容</h3>
-                    <p>{{ data.project_description.content }}</p>
-                </div>
+                    <p>1）神经-人工智能对齐与可解释性；2）AI+教育+人机交互，桌面机器人在协作学习中的交互机制；3）AI Educationist，大模型驱动的教育自动化科研；4）多模态大模型与数字人，探索“听得懂、说得像、做得自然”。</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- 团队介绍 -->
     <section id="team" class="section section-alt">
         <div class="container">
             <h2 class="section-title">团队介绍</h2>
-            
-            <!-- 项目负责人 -->
-            <div class="leader-section">
+
+            <section class="leader-section">
                 <h3 class="subsection-title">项目负责人</h3>
-                <div class="leader-card">
+                <article class="leader-card" data-reveal>
                     <div class="leader-avatar">
-                        <div class="avatar-placeholder">{{ data.team.leader.name[0] }}</div>
+                        <div class="avatar-placeholder">甄</div>
                     </div>
                     <div class="leader-info">
-                        <h4>{{ data.team.leader.name }}</h4>
-                        <p class="leader-title">{{ data.team.leader.title }}</p>
-                        <p><strong>研究兴趣：</strong>{{ data.team.leader.research_interests }}</p>
-                        <p><strong>主要成就：</strong>{{ data.team.leader.achievements }}</p>
-                        <p><strong>联系方式：</strong><a href="mailto:{{ data.team.leader.email }}">{{ data.team.leader.email }}</a></p>
+                        <h4>甄园宜</h4>
+                        <p class="leader-title">助理教授、博士生导师</p>
+                        <p><strong>研究兴趣：</strong>科学学与创新，人工智能教育应用，社会计算</p>
+                        <p><strong>主要成就：</strong>参与国家自然科学基金、北京学而思教育科技有限公司基金等课题5项，在SCI/SSCI/CSSCI/EI等检索刊物发表论文10余篇，获2024年国际社会计算会议最具创新奖。</p>
+                        <p><strong>联系方式：</strong><a href="mailto:zhenyuanyi@bza.edu.cn">zhenyuanyi@bza.edu.cn</a></p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <!-- 团队成员 -->
-            <div class="members-section">
+            <section class="leader-section">
+                <h3 class="subsection-title">项目导师</h3>
+                <div class="members-grid">
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">夏</div>
+                        <h4>夏应策</h4>
+                        <p class="member-role">副教授、博士生导师</p>
+                        <p class="member-spec">生成式人工智能，AI赋能教育，AI for Science，大语言模型</p>
+                        <p><strong>主要成就：</strong>于2018年获中国科学技术大学博士学位并曾任微软研究院首席研究员，主导对偶学习技术研发，推动科学大模型相关实践。</p>
+                    </article>
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">刘</div>
+                        <h4>刘泽群</h4>
+                        <p class="member-role">研究员、博士生导师</p>
+                        <p class="member-spec">大模型后训练，生物医学自然语言处理，AI辅助药物发现</p>
+                        <p><strong>主要成就：</strong>长期从事大语言模型在生物医药领域应用研究，在ACL、EMNLP、ICLR、ICML等顶会和Nature Machine Intelligence等期刊发表论文多篇。</p>
+                    </article>
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">张</div>
+                        <h4>张旭华</h4>
+                        <p class="member-role">研究员、博士生导师</p>
+                        <p class="member-spec">教育场景中的智能体技术，数字孪生</p>
+                        <p><strong>主要成就：</strong>长期从事教育智能体技术与数字孪生研究，并在多个应用场景推进智能体模型与交互优化。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="members-section">
                 <h3 class="subsection-title">团队成员</h3>
                 <div class="members-grid">
-                    {% for member in data.team.members %}
-                    <div class="member-card">
-                        <div class="member-avatar">{{ member.name[0] }}</div>
-                        <h4>{{ member.name }}</h4>
-                        <p class="member-role">{{ member.role }}</p>
-                        <p class="member-spec">{{ member.specialization }}</p>
-                    </div>
-                    {% endfor %}
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">尤</div>
+                        <h4>尤阳</h4>
+                        <p class="member-role">博士研究生</p>
+                        <p class="member-spec">神经-人工智能对齐与可解释性</p>
+                    </article>
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">顾</div>
+                        <h4>顾晨宇</h4>
+                        <p class="member-role">博士研究生</p>
+                        <p class="member-spec">AI+教育+人机交互，桌面机器人在协作学习场景下的交互机制与应用研究</p>
+                    </article>
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">汪</div>
+                        <h4>汪彩云</h4>
+                        <p class="member-role">博士研究生</p>
+                        <p class="member-spec">AI Educationist：大模型驱动的教育自动化科研</p>
+                    </article>
+                    <article class="member-card" data-reveal>
+                        <div class="member-avatar">胡</div>
+                        <h4>胡晓林</h4>
+                        <p class="member-role">博士研究生</p>
+                        <p class="member-spec">研究方向聚焦于多模态大模型与数字人，探索让数字人“听得懂、说得像、做得自然”。</p>
+                    </article>
                 </div>
-            </div>
+            </section>
 
-            <!-- 团队风采 -->
-            <div class="team-culture">
+            <section class="team-culture">
                 <h3 class="subsection-title">团队风采</h3>
-                <div class="culture-card">
-                    <p class="culture-text">{{ data.team.team_culture }}</p>
-                </div>
-            </div>
+                <article class="culture-card" data-reveal>
+                    <p class="culture-text">我们是一支充满活力、勇于创新的研究团队，始终面向学术前沿与真实需求，致力于培养具有国际视野与扎实科研能力的高水平研究人才。团队氛围开放包容、协作紧密，既重视严谨求证的学术训练，也鼓励大胆探索与跨领域交流。我们相信，有温度的团队文化能让每一次讨论更坦诚，也让每一次并肩更坚定。</p>
+                </article>
+            </section>
         </div>
     </section>
 
-    <!-- 项目动态与成果 -->
     <section id="achievements" class="section">
         <div class="container">
             <h2 class="section-title">项目动态与成果</h2>
             <div class="timeline">
-                {% for item in data.news_and_achievements %}
-                <div class="timeline-item">
-                    <div class="timeline-date">{{ item.date }}</div>
-                    <div class="timeline-content">
-                        <span class="timeline-badge">{{ item.type }}</span>
-                        <h4>{{ item.title }}</h4>
-                        <p>{{ item.description }}</p>
+                <article class="timeline-item">
+                    <div class="timeline-content" style="text-align: center; padding: 24px; color: #9fb3c8;">
                     </div>
-                </div>
-                {% endfor %}
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- 招生信息 -->
     <section id="recruitment" class="section section-alt">
         <div class="container">
             <h2 class="section-title">招生信息</h2>
-            
-            {% if data.recruitment.is_open %}
-            <div class="recruitment-status open">
-                <h3>🎉 正在招募中！</h3>
+            <div class="recruitment-status open" data-reveal>
+                <h3>正在招募</h3>
+                <p>期待与你一起共建更高质量的人机共智研究</p>
             </div>
 
             <div class="positions-grid">
-                {% for position in data.recruitment.positions %}
-                <div class="position-card">
-                    <h4>{{ position.title }}</h4>
-                    <p class="position-count">招募人数：{{ position.count }}</p>
-                    <h5>招募要求：</h5>
+                <article class="position-card" data-reveal>
+                    <h4>博士研究生</h4>
+                    <p class="position-count">招募人数：1-2名</p>
+                    <h5>招募要求</h5>
                     <ul class="requirements-list">
-                        {% for req in position.requirements %}
-                        <li>{{ req }}</li>
-                        {% endfor %}
+                        <li>具有计算机、数学、社会学、教育学等相关专业背景</li>
+                        <li>有较强的编程能力（Python/C++）</li>
+                        <li>对人工智能、大模型、人机交互、AI教育有浓厚兴趣</li>
+                        <li>有良好的英文阅读和写作能力</li>
                     </ul>
-                </div>
-                {% endfor %}
+                </article>
+                <article class="position-card" data-reveal>
+                    <h4>科研助理</h4>
+                    <p class="position-count">招募人数：1-2名</p>
+                    <h5>招募要求</h5>
+                    <ul class="requirements-list">
+                        <li>本科及以上学历</li>
+                        <li>有机器学习或数据分析经验</li>
+                        <li>能够独立完成研究任务</li>
+                        <li>有相关项目经验者优先</li>
+                    </ul>
+                </article>
             </div>
 
-            <div class="contact-section">
+            <section class="contact-section">
                 <h3 class="subsection-title">联系方式</h3>
-                <div class="contact-card">
+                <article class="contact-card" data-reveal>
                     <div class="contact-item">
                         <span class="contact-icon">📧</span>
                         <div>
                             <strong>邮箱：</strong>
-                            <a href="mailto:{{ data.recruitment.contact.email }}">{{ data.recruitment.contact.email }}</a>
+                            <a href="mailto:zhenyuanyi@bza.edu.cn">zhenyuanyi@bza.edu.cn</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">📱</span>
                         <div>
-                            <strong>电话：</strong>{{ data.recruitment.contact.phone }}
+                            <strong>电话：</strong>010-82821011
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
                         <div>
-                            <strong>地址：</strong>{{ data.recruitment.contact.address }}
+                            <strong>地址：</strong>北京市海淀区西北旺镇大牛坊海淀大悦信息科技园
                         </div>
                     </div>
                     <div class="contact-note">
-                        <p>{{ data.recruitment.contact.note }}</p>
+                        <p>欢迎发送简历至招生邮箱，我们会尽快与您联系！</p>
                     </div>
-                </div>
-            </div>
-            {% else %}
-            <div class="recruitment-status closed">
-                <h3>暂不招募</h3>
-                <p>感谢您的关注，目前暂无招募计划。</p>
-            </div>
-            {% endif %}
+                </article>
+            </section>
         </div>
     </section>
 
-    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 {{ data.project_name }}. All Rights Reserved.</p>
-            <p>Powered by FastAPI</p>
+            <p>&copy; 2026 人机共智的认知对齐与协同演化机制研究. All Rights Reserved.</p>
+            <p>Hosted on GitHub Pages</p>
         </div>
     </footer>
 
-    <script src="/static/js/script.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>
